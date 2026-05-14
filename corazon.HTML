@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Macroscópico: Corazón</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="corazones.css">
+</head>
+<body>
+
+    <main class="pathology-container">
+        <aside class="sidebar">
+            <div class="header">
+                <span class="label">Muestra Anatomopatológica</span>
+                <h1>Corte Transversal Ventricular</h1>
+            </div>
+
+            <div class="description">
+                <p>Análisis de la arquitectura miocárdica a nivel de los ventrículos.</p>
+                <div class="point">
+                    <i class="fas fa-microscope"></i>
+                    <span>Busque el signo de la "D" en el ventrículo izquierdo.</span>
+                </div>
+            </div>
+
+            <div class="findings-list">
+                <div class="finding-item">VD: Pared delgada y dilatada</div>
+                <div class="finding-item">VI: Comprimido por el septo</div>
+            </div>
+        </aside>
+
+        <section class="viewer">
+            <div class="image-wrapper">
+                <img src="ventriculo.png" alt="Corte transversal del corazón" class="anatomy-img">
+                <div class="magnifier"></div>
+            </div>
+            <div class="viewer-nav">
+                <span><i class="fas fa-compress"></i> VISTA MACRO</span>
+                <div class="divider"></div>
+                <span><i class="fas fa-search-plus"></i> MODO EXPLORACIÓN</span>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Script simple para el efecto de lupa
+        const wrapper = document.querySelector('.image-wrapper');
+        const img = document.querySelector('.anatomy-img');
+        const magnifier = document.querySelector('.magnifier');
+
+        wrapper.addEventListener('mousemove', (e) => {
+            const rect = wrapper.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            magnifier.style.display = 'block';
+            magnifier.style.left = `${x - 75}px`;
+            magnifier.style.top = `${y - 75}px`;
+
+            const percentX = (x / rect.width) * 100;
+            const percentY = (y / rect.height) * 100;
+
+            magnifier.style.backgroundImage = `url('${img.src}')`;
+            magnifier.style.backgroundPosition = `${percentX}% ${percentY}%`;
+            magnifier.style.backgroundSize = `${rect.width * 2.5}px ${rect.height * 2.5}px`;
+        });
+
+        wrapper.addEventListener('mouseleave', () => {
+            magnifier.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

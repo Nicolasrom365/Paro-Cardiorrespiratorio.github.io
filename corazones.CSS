@@ -1,0 +1,137 @@
+:root {
+    --bg-path: #0c0b0a;
+    --sidebar-bg: #1a1816;
+    --accent-path: #d4a373; /* Tono ocre/organico */
+    --text-path: #e9edc9;
+    --border-path: #35312d;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-path);
+    color: var(--text-path);
+    font-family: 'Georgia', serif; /* Toque más clásico/médico */
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.pathology-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar Estilo Académico */
+.sidebar {
+    width: 380px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-path);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-path);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 15px 0 30px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.description p {
+    font-size: 1.1rem;
+    color: #a19d99;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.point {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--accent-path);
+    font-size: 0.9rem;
+}
+
+.findings-list {
+    margin-top: auto;
+    border-top: 1px solid var(--border-path);
+    padding-top: 30px;
+}
+
+.finding-item {
+    background: rgba(212, 163, 115, 0.05);
+    border: 1px solid var(--border-path);
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+
+/* Visor de Imagen */
+.viewer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #1a1816 0%, #0c0b0a 100%);
+    position: relative;
+}
+
+.image-wrapper {
+    position: relative;
+    max-width: 85%;
+    max-height: 80%;
+    cursor: none; /* Ocultamos el puntero para usar la lupa */
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    border: 1px solid var(--border-path);
+}
+
+.anatomy-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(0.1) contrast(1.1);
+}
+
+/* Efecto Lupa */
+.magnifier {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--accent-path);
+    border-radius: 50%;
+    pointer-events: none;
+    display: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 10;
+    background-repeat: no-repeat;
+    background-color: #000;
+}
+
+.viewer-nav {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #555;
+    align-items: center;
+}
+
+.divider {
+    width: 1px;
+    height: 15px;
+    background: #333;
+}

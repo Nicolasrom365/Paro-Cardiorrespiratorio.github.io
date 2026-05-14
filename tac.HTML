@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Angio-TC de Tórax</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="torax.css">
+</head>
+<body>
+
+    <main class="viewport">
+        <section class="info-panel">
+            <div class="header-text">
+                <span class="badge">Radiología</span>
+                <h1>Angio-TC de Tórax</h1>
+                <p>Estudio de contraste para evaluación de lecho vascular pulmonar.</p>
+            </div>
+            
+            <div class="analysis-card">
+                <h3>Instrucciones de examen</h3>
+                <p>Pase el cursor sobre la imagen para realizar un <strong>zoom dinámico</strong> sobre los defectos de llenado.</p>
+            </div>
+
+            <div class="status-indicator">
+                <div class="dot active"></div>
+                <span>CONTRASTE: FASE ARTERIAL</span>
+            </div>
+        </section>
+
+        <section class="image-viewer">
+            <div class="zoom-box">
+                <img src="angiotac.png" alt="Angio-TC de Tórax" class="main-scan">
+                <div class="overlay-labels">
+                    <span class="label-r">R</span>
+                    <span class="label-l">L</span>
+                </div>
+            </div>
+            <div class="viewer-footer">
+                <span>SCROLL PARA NAVEGAR</span>
+                <i class="fas fa-expand-alt"></i>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
